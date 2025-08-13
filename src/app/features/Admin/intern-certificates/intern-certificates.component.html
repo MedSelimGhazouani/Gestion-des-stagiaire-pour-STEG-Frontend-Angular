@@ -1,0 +1,81 @@
+<div class="dashboard-container">
+  <h2 class="dashboard-title">
+    <i class="fas fa-certificate"></i> Certificate Requests
+  </h2>
+
+  <div class="table-wrapper">
+    <table mat-table [dataSource]="certificateRequests" class="user-table mat-elevation-z2">
+
+      <!-- Name -->
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef>Name</th>
+        <td mat-cell *matCellDef="let request">
+          <i class="fas fa-user-circle text-primary"></i>
+          {{ request.intern?.name || 'N/A' }}
+        </td>
+      </ng-container>
+
+      <!-- Email -->
+      <ng-container matColumnDef="email">
+        <th mat-header-cell *matHeaderCellDef>Email</th>
+        <td mat-cell *matCellDef="let request">
+          <i class="fas fa-envelope text-info"></i>
+          {{ request.intern?.email || 'N/A' }}
+        </td>
+      </ng-container>
+
+      <!-- Type -->
+      <ng-container matColumnDef="type">
+        <th mat-header-cell *matHeaderCellDef>Type</th>
+        <td mat-cell *matCellDef="let request">
+          <i class="fas fa-file-alt text-warning"></i>
+          {{ request.type | titlecase }}
+        </td>
+      </ng-container>
+
+      <!-- Reason -->
+      <ng-container matColumnDef="reason">
+        <th mat-header-cell *matHeaderCellDef>Reason</th>
+        <td mat-cell *matCellDef="let request">
+          <span class="reason-text" (click)="toggleReason(request)">
+            <i class="fas fa-info-circle"></i>
+            {{ request.showFullReason ? request.reason : (request.reason | slice:0:30) + (request.reason.length > 30 ? '...' : '') }}
+          </span>
+        </td>
+      </ng-container>
+
+      <!-- Status -->
+      <ng-container matColumnDef="status">
+        <th mat-header-cell *matHeaderCellDef>Status</th>
+        <td mat-cell *matCellDef="let request">
+          <span class="status-pill" [ngClass]="getStatusClass(request.status)">
+            <i class="fas fa-clock" *ngIf="request.status === 'REQUESTED'"></i>
+            <i class="fas fa-check-circle" *ngIf="request.status === 'APPROVED'"></i>
+            <i class="fas fa-times-circle" *ngIf="request.status === 'REJECTED'"></i>
+            {{ request.status }}
+          </span>
+        </td>
+      </ng-container>
+
+      <!-- Actions -->
+      <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef>Actions</th>
+        <td mat-cell *matCellDef="let request" class="action-buttons">
+          <button mat-icon-button class="approve-btn"
+                  (click)="approveCertificate(request)"
+                  [disabled]="request.status !== 'REQUESTED'">
+            <i class="fas fa-check"></i>
+          </button>
+          <button mat-icon-button class="reject-btn"
+                  (click)="rejectCertificate(request)"
+                  [disabled]="request.status !== 'REQUESTED'">
+            <i class="fas fa-times"></i>
+          </button>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
+      <tr mat-row *matRowDef="let row; columns: columnsToDisplay;"></tr>
+    </table>
+  </div>
+</div>

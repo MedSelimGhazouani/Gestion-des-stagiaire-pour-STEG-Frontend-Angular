@@ -1,0 +1,48 @@
+<div class="certificate-container">
+  <div class="certificate-card">
+    <h2 class="title">Request Internship Certificate</h2>
+
+    <form [formGroup]="requestForm" (ngSubmit)="onSubmit()">
+      <!-- Certificate Type -->
+      <div class="form-group">
+        <label for="type">Certificate Type</label>
+        <select id="type" formControlName="type" class="form-control">
+          <option value="" disabled>Select type</option>
+          <option value="presence">Presence</option>
+          <option value="completion">Completion</option>
+          <option value="recommendation">Recommendation</option>
+        </select>
+        <div *ngIf="requestForm.get('type')?.invalid && requestForm.get('type')?.touched" class="error">
+          Please select a certificate type.
+        </div>
+      </div>
+
+      <!-- Reason -->
+      <div class="form-group">
+        <label for="reason">Reason for Request</label>
+        <textarea
+          id="reason"
+          formControlName="reason"
+          rows="4"
+          placeholder="Explain why you need this certificate..."
+          class="form-control"
+        ></textarea>
+        <div *ngIf="requestForm.get('reason')?.invalid && requestForm.get('reason')?.touched" class="error">
+          Reason must be at least 10 characters long.
+        </div>
+      </div>
+
+      <!-- Buttons -->
+      <div class="form-actions">
+        <button type="submit" class="btn primary" [disabled]="requestForm.invalid || loading">
+          {{ loading ? 'Submitting...' : 'Submit Request' }}
+        </button>
+        <button type="button" class="btn outline" (click)="onCancel()">Cancel</button>
+      </div>
+    </form>
+
+    <!-- Success or Error Messages -->
+    <div *ngIf="successMessage" class="success">{{ successMessage }}</div>
+    <div *ngIf="errorMessage" class="error">{{ errorMessage }}</div>
+  </div>
+</div>

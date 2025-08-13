@@ -1,0 +1,217 @@
+/* Container & Layout */
+.calendar-wrapper {
+  max-width: 720px;
+  margin: 2rem auto;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #1a1a1a;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+  padding: 20px 30px;
+}
+
+.calendar-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  font-weight: 700;
+  font-size: 1.6rem;
+  color: #004080;
+  margin-bottom: 1rem;
+  user-select: none;
+}
+
+.nav-arrow {
+  background: #004080;
+  color: white;
+  border: none;
+  font-size: 2rem;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color 0.25s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav-arrow:hover {
+  background: #0066cc;
+  box-shadow: 0 0 10px #0066ccaa;
+}
+
+/* Weekday Labels */
+.weekdays {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  margin-bottom: 12px;
+}
+
+.weekday {
+  text-align: center;
+  font-weight: 600;
+  color: #004080dd;
+  font-size: 0.85rem;
+  padding-bottom: 8px;
+  border-bottom: 2px solid #e2e8f0;
+  user-select: none;
+}
+
+/* Calendar Grid */
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 8px;
+}
+
+.calendar-day {
+  position: relative;
+  height: 100px;
+  background: #f9fbff;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.03);
+  cursor: pointer;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 8px 10px;
+}
+
+.calendar-day:hover:not(.empty) {
+  background: #e6f0ff;
+  box-shadow: 0 6px 12px rgba(0, 102, 204, 0.3);
+}
+
+.calendar-day.empty {
+  background: transparent;
+  cursor: default;
+  box-shadow: none;
+}
+
+/* Highlight filled task block with light blue background */
+.calendar-day.task-filled {
+  background-color: #d3e5ff;
+  box-shadow: 0 0 10px 2px #a7c7ff;
+}
+
+/* Day number */
+.day-number {
+  font-size: 0.75rem;
+  color: #0050cc;
+  font-weight: 600;
+  user-select: none;
+  opacity: 0.75;
+  letter-spacing: 0.03em;
+}
+
+/* Modal Styles */
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0,0,0,0.35);
+  z-index: 999;
+  cursor: pointer;
+}
+
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  width: 350px;
+  padding: 24px 28px;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
+}
+
+.modal h2 {
+  margin: 0 0 8px;
+  font-weight: 700;
+  color: #004080;
+  font-size: 1.4rem;
+}
+
+.modal label {
+  font-weight: 600;
+  font-size: 0.9rem;
+  margin-bottom: 4px;
+  color: #0050cc;
+}
+
+.modal textarea {
+  width: 100%;
+  min-height: 80px;
+  resize: vertical;
+  padding: 8px 12px;
+  font-size: 1rem;
+  border: 2px solid #cbd5e1;
+  border-radius: 6px;
+  transition: border-color 0.3s ease;
+  font-family: inherit;
+}
+
+.modal textarea:focus {
+  border-color: #004080;
+  outline: none;
+}
+
+.modal select {
+  width: 100%;
+  padding: 8px 12px;
+  font-size: 1rem;
+  border-radius: 6px;
+  border: 2px solid #cbd5e1;
+  transition: border-color 0.3s ease;
+  font-family: inherit;
+  color: #333;
+}
+
+.modal select:focus {
+  border-color: #004080;
+  outline: none;
+}
+
+.modal-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.btn {
+  padding: 10px 18px;
+  font-weight: 700;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+.save-btn {
+  background-color: #004080;
+  color: white;
+}
+
+.save-btn:hover {
+  background-color: #0059cc;
+}
+
+.cancel-btn {
+  background-color: #e0e6f2;
+  color: #004080;
+}
+
+.cancel-btn:hover {
+  background-color: #c6d0f0;
+}

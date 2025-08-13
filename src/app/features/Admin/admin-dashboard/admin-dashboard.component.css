@@ -1,0 +1,131 @@
+.dashboard-container {
+  padding: 2rem;
+  margin-left: 260px;
+  background: #f7fafd;
+  min-height: 100vh;
+  font-family: 'Inter', sans-serif;
+
+  @media (max-width: 768px) {
+    margin-left: 0;
+    padding: 1rem;
+  }
+}
+
+/* Search */
+.search-wrapper {
+  margin-bottom: 1.5rem;
+  max-width: 500px;
+
+  .search-bar {
+    width: 100%;
+
+    .mat-mdc-form-field-subscript-wrapper {
+      display: none; 
+    }
+  }
+}
+
+/* Stat Cards */
+.cards-container {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
+
+  .card-widget {
+    flex: 1 1 250px;
+    display: flex;
+    align-items: center;
+    padding: 1rem 1.25rem;
+    border-radius: 16px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+    color: #fff;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    cursor: default;
+
+    &:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 22px rgba(0,0,0,0.12);
+    }
+
+    mat-icon {
+      font-size: 40px;
+      margin-right: 1rem;
+    }
+
+    h5 {
+      font-size: 1rem;
+      margin: 0;
+      font-weight: 600;
+      opacity: 0.9;
+    }
+
+    span {
+      display: block;
+      font-size: 1.4rem;
+      font-weight: 700;
+      margin-top: 2px;
+    }
+
+    &.purple { background: #5b2f91; }
+    &.blue   { background: #1c63b8; } /* STEG-ish */
+    &.green  { background: #2e7d32; }
+  }
+}
+
+/* Table */
+.table-wrapper {
+  background: #fff;
+  border-radius: 12px;
+  padding: 1.5rem;
+  overflow-x: auto;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.05);
+
+  .user-table {
+    width: 100%;
+    border-collapse: collapse;
+
+    th {
+      font-weight: 600;
+      white-space: nowrap;
+      font-size: 0.95rem;
+      color: #003b80;
+      text-transform: uppercase;
+      padding: 0.8rem;
+      border-bottom: 2px solid #e3e6eb;
+    }
+
+    td {
+      padding: 0.75rem 0.8rem;
+      font-size: 0.95rem;
+      vertical-align: middle;
+      color: #333;
+      border-bottom: 1px solid #f0f2f5;
+
+      .cell-icon {
+        margin-right: 6px;
+        font-size: 0.95rem;
+        opacity: 0.85;
+      }
+    }
+
+    tr.clickable-row {
+      cursor: pointer;
+      transition: background 0.2s ease;
+      &:hover {
+        background: #f0f7ff;
+      }
+    }
+
+    .user-img {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-right: 8px;
+      border: 2px solid #007bff33;
+      transition: transform 0.25s ease;
+      &:hover { transform: scale(1.15); }
+    }
+  }
+}

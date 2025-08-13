@@ -1,0 +1,61 @@
+<div class="dashboard-container">
+  <h2 class="dashboard-title">
+    <i class="fas fa-user-clock"></i> Intern Account Requests
+  </h2>
+
+  <div class="table-wrapper">
+    <table mat-table [dataSource]="pendingInterns" class="user-table mat-elevation-z2">
+
+      <!-- Photo -->
+      <ng-container matColumnDef="photo">
+        <th mat-header-cell *matHeaderCellDef></th>
+        <td mat-cell *matCellDef="let user">
+          <img [src]="user.photoUrl || '/assets/default-avatar.png'" class="user-img" alt="Avatar" />
+        </td>
+      </ng-container>
+
+      <!-- Name -->
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef>Name</th>
+        <td mat-cell *matCellDef="let user">
+          <i class="fas fa-user text-primary"></i>
+          {{ user.fullName }}
+        </td>
+      </ng-container>
+
+      <!-- Email -->
+      <ng-container matColumnDef="email">
+        <th mat-header-cell *matHeaderCellDef>Email</th>
+        <td mat-cell *matCellDef="let user">
+          <i class="fas fa-envelope text-info"></i>
+          {{ user.email }}
+        </td>
+      </ng-container>
+
+      <!-- Specialty -->
+      <ng-container matColumnDef="specialty">
+        <th mat-header-cell *matHeaderCellDef>Specialty</th>
+        <td mat-cell *matCellDef="let user">
+          <i class="fas fa-graduation-cap text-warning"></i>
+          {{ user.specialty }}
+        </td>
+      </ng-container>
+
+      <!-- Actions -->
+      <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef>Actions</th>
+        <td mat-cell *matCellDef="let user" class="action-buttons">
+          <button class="action-btn approve" (click)="verify(user)" title="Approve">
+            <i class="fas fa-check"></i>
+          </button>
+          <button class="action-btn reject" (click)="delete(user)" title="Reject">
+            <i class="fas fa-times"></i>
+          </button>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
+      <tr mat-row *matRowDef="let row; columns: columnsToDisplay;"></tr>
+    </table>
+  </div>
+</div>

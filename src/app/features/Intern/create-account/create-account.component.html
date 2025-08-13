@@ -1,0 +1,185 @@
+<div class="steg-account-container">
+  <div class="steg-branding">
+    <div class="steg-logo-container">
+      <img src="assets/images/steglogo.jpg" alt="STEG Logo" class="steg-logo" />
+      <h1>STEG Internship Portal</h1>
+    </div>
+    <div class="steg-power-lines">
+      <div class="power-line"></div>
+      <div class="power-line"></div>
+      <div class="power-line"></div>
+    </div>
+  </div>
+
+  <div class="account-form-container">
+    <h2>Create Your Account</h2>
+    <p class="subtitle">Join STEG's internship program and launch your career</p>
+
+    <form [formGroup]="accountForm" (ngSubmit)="onSubmit()" class="steg-form">
+      <!-- Role -->
+      <div class="form-group role-selection">
+        <label>I am applying as:</label>
+        <div class="role-options">
+          <button type="button" [class.active]="accountForm.get('role')?.value === 'intern'"
+                  (click)="accountForm.get('role')?.setValue('intern')">
+            <i class="fas fa-user-graduate"></i> Intern
+          </button>
+          <button type="button" *ngIf="enableAdminRegistration"
+                  [class.active]="accountForm.get('role')?.value === 'admin'"
+                  (click)="accountForm.get('role')?.setValue('admin')">
+            <i class="fas fa-user-tie"></i> Admin
+          </button>
+        </div>
+      </div>
+
+      <!-- Name -->
+      <div class="form-group">
+        <label for="fullName">Full Name</label>
+        <input id="fullName" type="text" formControlName="fullName" placeholder="Enter your full name" />
+        <div *ngIf="accountForm.get('fullName')?.invalid && (accountForm.get('fullName')?.touched || accountForm.get('fullName')?.dirty)" class="error-message">
+          Please enter your full name
+        </div>
+      </div>
+
+      <!-- Email -->
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input id="email" type="email" formControlName="email" placeholder="Enter your email" />
+        <div *ngIf="accountForm.get('email')?.errors?.['required'] && accountForm.get('email')?.touched" class="error-message">
+          Email is required
+        </div>
+        <div *ngIf="accountForm.get('email')?.errors?.['email'] && accountForm.get('email')?.touched" class="error-message">
+          Please enter a valid email
+        </div>
+      </div>
+ <div class="form-group">
+        <label for="phone">Phone</label>
+        <input id="phone" type="text" formControlName="phone" placeholder="Enter your Phone" />
+        <div *ngIf="accountForm.get('phone')?.invalid && (accountForm.get('phone')?.touched || accountForm.get('phone')?.dirty)" class="error-message">
+          Please enter your Phone
+        </div>
+      </div>
+      <!-- Password -->
+      <!-- Password & Confirm Password -->
+<div class="form-row double-input">
+  <div class="form-column">
+    <label for="password">Password</label>
+    <div class="password-input">
+      <input [type]="showPassword ? 'text' : 'password'" id="password" formControlName="password" placeholder="Create a password" />
+      <button type="button" class="toggle-password" (click)="togglePasswordVisibility()">
+        <i [class]="showPassword ? 'far fa-eye-slash' : 'far fa-eye'"></i>
+      </button>
+    </div>
+    <div *ngIf="accountForm.get('password')?.errors?.['required'] && accountForm.get('password')?.touched" class="error-message">
+      Password is required
+    </div>
+  </div>
+
+  <div class="form-column">
+    <label for="confirmPassword">Confirm Password</label>
+    <input type="password" id="confirmPassword" formControlName="confirmPassword" placeholder="Confirm your password" />
+    <div *ngIf="accountForm.get('confirmPassword')?.errors?.['required'] && accountForm.get('confirmPassword')?.touched" class="error-message">
+      Please confirm your password
+    </div>
+    <div *ngIf="accountForm.hasError('mismatch')" class="error-message">
+      Passwords do not match
+    </div>
+  </div>
+</div>
+
+      <!-- Intern Only Fields -->
+      <div *ngIf="accountForm.get('role')?.value === 'intern'" class="intern-fields">
+        <div class="form-group">
+          <label for="university">University/Institution</label>
+          <input id="university" type="text" formControlName="university" placeholder="Your university name" />
+        </div>
+
+        <div class="form-group">
+          <label for="specialty">Specialty</label>
+          <select id="specialty" formControlName="specialty">
+            <option value="">Select your field of study</option>
+            <option value="computer_science">Computer Science</option>
+            <option value="electrical_engineering">Electrical Engineering</option>
+            <option value="mechanical_engineering">Mechanical Engineering</option>
+            <option value="business_administration">Business Administration</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+      </div>
+
+
+  
+<!-- Photo Upload -->
+<div class="form-row">
+    <label for="photo">Profile Photo</label>
+    <input type="file" id="photo" (change)="onFileSelected($event)">
+  </div>
+ <div class="form-group">
+          <label><i class="fas fa-calendar-alt"></i> Start Date</label>
+          <input type="date" />
+        </div>
+
+        <div class="form-group">
+          <label><i class="fas fa-calendar-check"></i> End Date</label>
+          <input type="date" />
+        </div>
+      <!-- Terms and Conditions -->
+      <div class="form-group terms">
+        <label class="checkbox-container">
+          <input type="checkbox" formControlName="termsAccepted" />
+          <span class="checkmark"></span>
+          I agree to the 
+          <a href="#" (click)="openTermsModal($event)">Terms of Service</a> and 
+          <a href="#" (click)="openPrivacyModal($event)">Privacy Policy</a>
+        </label>
+        
+        <div *ngIf="accountForm.get('termsAccepted')?.invalid && accountForm.get('termsAccepted')?.touched" class="error-message">
+          You must accept the terms and conditions
+        </div>
+      </div>
+
+      <!-- Submit -->
+      <button type="submit" class="steg-button" [disabled]="accountForm.invalid || isLoading">
+        <span *ngIf="!isLoading">Create Account</span>
+        <span *ngIf="isLoading" class="spinner"></span>
+      </button>
+
+      <!-- Link to login -->
+      <div class="login-link">
+        Already have an account? <a routerLink="/login">Sign in</a>
+      </div>
+    </form>
+  </div>
+
+  <!-- Electric Tower Theme -->
+  <div class="steg-theme-elements">
+    <div class="electric-tower">
+      <div class="tower-base"></div>
+      <div class="tower-body"></div>
+      <div class="tower-arms">
+        <div class="arm left"></div>
+        <div class="arm right"></div>
+      </div>
+      <div class="power-lines">
+        <div class="line"></div>
+        <div class="line"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Terms Modal -->
+<app-modal *ngIf="showTermsModal" (close)="closeTermsModal()">
+  <h2>Terms of Service</h2>
+  <div class="modal-content">
+    <p>STEG Internship Portal Terms and Conditions...</p>
+  </div>
+</app-modal>
+
+<!-- Privacy Modal -->
+<app-modal *ngIf="showPrivacyModal" (close)="closePrivacyModal()">
+  <h2>Privacy Policy</h2>
+  <div class="modal-content">
+    <p>STEG Internship Portal Privacy Policy...</p>
+  </div>
+</app-modal> 

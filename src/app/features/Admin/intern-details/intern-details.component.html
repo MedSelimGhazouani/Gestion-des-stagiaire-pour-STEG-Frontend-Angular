@@ -1,0 +1,82 @@
+<!-- FontAwesome CDN for icons (if not already included globally) -->
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+/>
+
+<div class="profile-page" *ngIf="intern">
+  <!-- Header Banner -->
+  <div class="profile-header">
+    <div class="profile-banner">
+      <div class="overlay"></div>
+      <div class="profile-header-content">
+        <img class="profile-avatar" [src]="intern.profileImageUrl || '/assets/default-avatar.png'"  alt="Intern Avatar" />
+        <h2 class="user-name">{{ intern.fullName }}</h2>
+        <p class="user-role">
+          <i class="fas fa-user-graduate"></i> Intern - {{ intern.specialty || 'Computer Science' }}
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Profile Info Section -->
+  <div class="profile-info">
+    <h3><i class="fas fa-id-card"></i> Personal Information</h3>
+    <div class="info-grid">
+      <div class="info-item">
+        <i class="fas fa-envelope info-icon"></i>
+        <div>
+          <label>Email</label>
+          <p>{{ intern.email }}</p>
+        </div>
+      </div>
+      <div class="info-item">
+        <i class="fas fa-phone info-icon"></i>
+        <div>
+          <label>Phone</label>
+          <p>{{ intern.phone || '—' }}</p>
+        </div>
+      </div>
+      <div class="info-item">
+        <i class="fas fa-university info-icon"></i>
+        <div>
+          <label>University</label>
+          <p>{{ intern.university || '—' }}</p>
+        </div>
+      </div>
+      <div class="info-item">
+        <i class="fas fa-book info-icon"></i>
+        <div>
+          <label>Specialty</label>
+          <p>{{ intern.specialty || '—' }}</p>
+        </div>
+      </div>
+      <div class="info-item">
+        <i class="fas fa-calendar-alt info-icon"></i>
+        <div>
+          <label>Start Date</label>
+          <p>{{ intern.startDate | date: 'dd MMMM yyyy' }}</p>
+        </div>
+      </div>
+      <div class="info-item">
+        <i class="fas fa-calendar-check info-icon"></i>
+        <div>
+          <label>End Date</label>
+          <p>{{ intern.endDate | date: 'dd MMMM yyyy' }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Calendar Section -->
+  <div class="calendar-section">
+    <h3 class="section-title">
+      <i class="far fa-calendar-alt"></i> Internship Task Calendar
+    </h3>
+
+    <app-intern-calendar
+      [internId]="intern.id!"
+      [readOnly]="true"
+    ></app-intern-calendar>
+  </div>
+</div>

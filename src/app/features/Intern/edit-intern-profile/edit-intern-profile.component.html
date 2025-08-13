@@ -1,0 +1,48 @@
+<div class="edit-profile-page">
+  <!-- Header Banner -->
+  <div class="profile-header" *ngIf="user">
+  <div class="profile-banner">
+    <div class="overlay"></div>
+    <div class="profile-header-content">
+      <img
+        class="profile-avatar"
+        [src]="previewUrl || 'assets/images/avatar-default.png'"
+        alt="Intern Avatar"
+      />
+      <h2 class="user-name">{{ user.fullName }}</h2>
+      <p class="user-role"><i class="fas fa-user-edit"></i> Edit Your Profile</p>
+    </div>
+  </div>
+</div>
+
+  <!-- Edit Form Section -->
+  <div class="edit-profile-form">
+    <form [formGroup]="editForm" (ngSubmit)="onSubmit()">
+      <div class="form-grid">
+        
+        <div class="form-group">
+          <label><i class="fas fa-envelope"></i> Email</label>
+          <input type="email" placeholder="@example.com" formControlName="email"/>
+        </div>
+
+        <div class="form-group">
+          <label><i class="fas fa-phone"></i> Phone Number</label>
+          <input type="text" placeholder="+216 "formControlName="phone" />
+        </div>
+
+       
+
+       
+        <div class="form-group">
+          <label><i class="fas fa-image"></i> Profile Photo</label>
+          <input type="file" accept="image/*" (change)="onFileSelected($event)" />
+        </div>
+      </div>
+
+      <div class="form-actions">
+        <button type="submit" class="btn primary"><i class="fas fa-save"></i> Save Changes</button>
+        <button type="reset" class="btn outline"><i class="fas fa-undo"></i> Cancel</button>
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,84 @@
+<div class="kleon-vertical-nav">
+  <!-- Logo -->
+  <div class="logo d-flex align-items-center justify-content-between">
+    <a href="#" class="d-flex align-items-center gap-2 flex-shrink-0">
+      <img src="../../../../assets/images/steglogo.jpg " alt="logo" height="30" />
+      <div class="position-relative flex-shrink-0">
+        <!-- 🔵 Smaller & Blue Logo Text -->
+        <span style="font-weight: 600; font-size: 15px; color: #1c63b8;">STEG Portal</span>
+      </div>
+    </a>
+    <button type="button" class="kleon-vertical-nav-toggle"><i class="bi bi-list"></i></button>
+  </div>
+
+  <div class="kleon-navmenu">
+    <h6 class="hidden-header text-gray text-uppercase ls-1 ms-4 mb-4">Main Menu</h6>
+    <ul class="main-menu">
+
+      <!-- Dashboard -->
+      <li class="menu-item">
+        <a routerLink="/admin/dashboard">
+          <span class="nav-icon"><i class="bi bi-speedometer2 fs-18" style="color: #1c63b8;"></i></span>
+          <span class="nav-text " style="color: #1c63b8;">Dashboard</span>
+        </a>
+      </li>
+
+      <!-- Interns -->
+      <li class="menu-item menu-item-has-children">
+        <a href="#">
+          <span class="nav-icon"><i class="bi bi-person-badge fs-18" style="color: #1c63b8;"></i></span>
+          <span class="nav-text" style="color: #1c63b8;">Interns (Stagiaires)</span>
+        </a>
+        <ul class="sub-menu">
+          <li class="menu-item"><a routerLink="/admin/admin-dashboard" style="color: #1c63b8;">All Interns</a></li>
+          <li class="menu-item"><a routerLink="/admin/interns-requests" style="color: #1c63b8;">Requests</a></li>
+          <li class="menu-item"><a routerLink="/admin/intern-certificates" style="color: #1c63b8;">Certificate Requests</a></li>
+        </ul>
+        <span class="submenu-opener"><i class="bi bi-chevron-right"></i></span>
+      </li>
+
+      <!-- Encadreurs -->
+      <li class="menu-item menu-item-has-children">
+        <a href="#">
+          <span class="nav-icon"><i class="bi bi-people fs-18" style="color: #1c63b8;"></i></span>
+          <span class="nav-text" style="color: #1c63b8;">Encadreurs</span>
+        </a>
+        <ul class="sub-menu">
+          <li class="menu-item"><a routerLink="/admin/encadreurs" style="color: #1c63b8;">All Encadreurs</a></li>
+          <li class="menu-item"><a routerLink="/admin/add-encadreur" style="color: #1c63b8;">Add New</a></li>
+        </ul>
+        <span class="submenu-opener"><i class="bi bi-chevron-right"></i></span>
+      </li>
+
+      <!-- Messaging -->
+      <li class="menu-item">
+        <a routerLink="/admin/admin-messages">
+          <span class="nav-icon"><i class="bi bi-chat-dots fs-18" style="color: #1c63b8;"></i></span>
+          <span class="nav-text" style="color: #1c63b8;">Messagerie</span>
+        </a>
+      </li>
+
+      <!-- Documents -->
+      <li class="menu-item">
+        <a routerLink="/admin/documents">
+          <span class="nav-icon"><i class="bi bi-folder fs-18" style="color: #1c63b8;"></i></span>
+          <span class="nav-text" style="color: #1c63b8;">Documents</span>
+        </a>
+      </li>
+
+      <!-- Settings -->
+      <li class="menu-item">
+        <a routerLink="/admin/settings">
+          <span class="nav-icon"><i class="bi bi-gear fs-18" style="color: #1c63b8;"></i></span>
+          <span class="nav-text" style="color: #1c63b8;">Settings</span>
+        </a>
+      </li>
+    </ul>
+  </div>
+
+  <!-- Footer Card - Blue STEG Style -->
+  <div class="card border-0 mt-5 mx-3 p-3 rounded-4" style="background-color: #1c63b8; color: white;">
+    <h6 style="color: white;">STEG Internship System</h6>
+    <p style="color: #e1eaff; font-size: 14px;">Manage all internship activities from one place</p>
+  </div>
+</div>

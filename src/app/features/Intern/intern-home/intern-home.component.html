@@ -1,0 +1,58 @@
+<div class="intern-home-container">
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Welcome to the STEG Internship Portal</h1>
+      <p>Manage your internship journey, documents, and progress in one place.</p>
+    </div>
+  </section>
+
+  <!-- Intro Section -->
+  <section class="intro">
+    <p>
+      This platform is designed to simplify and centralize the entire internship experience at STEG.
+      From submitting documents to tracking your internship timeline, requesting certificates,
+      and staying updated with announcements — everything is in one place. Whether you're a student 
+      starting your internship or nearing completion, this portal supports you throughout the process.
+    </p>
+  </section>
+
+  <!-- Info Grid -->
+  <section class="info-grid">
+    <div class="info-card" (click)="goToProfile()">
+      <i class="fas fa-user-graduate"></i>
+      <h3>Your Profile</h3>
+      <p>View and edit your personal and academic information.</p>
+    </div>
+
+    <div class="info-card">
+      <i class="fas fa-file-upload"></i>
+      <h3>Documents</h3>
+      <p>Upload required documents such as CV, request letters, etc.</p>
+    </div>
+
+    <div class="info-card" (click)="goToRequestCertificate()">
+      <i class="fas fa-certificate"></i>
+      <h3>Request Certificate</h3>
+      <p>Easily request your internship completion certificate online.</p>
+    </div>
+
+    <div class="info-card">
+      <i class="fas fa-bullhorn"></i>
+      <h3>Announcements</h3>
+      <p>Stay updated with important news and internship guidelines.</p>
+    </div>
+
+    <div class="info-card" (click)="goToCalendar()">
+      <i class="fas fa-calendar-alt"></i>
+      <h3>Internship Timeline</h3>
+      <p>Track the start, progress, and end date of your internship.</p>
+    </div>
+
+    <div class="info-card" (click)="goToInternMessages()">
+      <i class="fas fa-comments"></i>
+      <h3>Support Chat</h3>
+      <p>Have questions? Chat with your supervisor or support team.</p>
+    </div>
+  </section>
+</div>

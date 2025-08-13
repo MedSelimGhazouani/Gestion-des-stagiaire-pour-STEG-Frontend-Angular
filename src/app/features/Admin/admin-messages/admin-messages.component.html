@@ -1,0 +1,62 @@
+<div class="dashboard-container" class="admin-dark">
+  <div class="messenger-container">
+    <!-- Conversations List -->
+    <div class="conversations-panel">
+      <h3 class="panel-title"><i class="fas fa-users"></i> Interns</h3>
+      <ul class="conversation-list">
+        <li *ngFor="let convo of conversations"
+            [class.active]="selectedConversation?.partnerId === convo.partnerId"
+            (click)="selectConversation(convo)">
+<img  [src]="convo.partnerPhotoUrl" class="user-img" />
+          <div class="details">
+            <span class="name">{{ convo.partnerName }}</span>
+            <small>{{ convo.lastMessagePreview }}</small>
+          </div>
+          <span class="badge" *ngIf="convo.unreadCount">{{ convo.unreadCount }}</span>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Chat Panel -->
+    <div class="chat-panel">
+      <div *ngIf="selectedConversation; else emptyChat" class="chat-wrapper">
+        <!-- Header -->
+        <div class="chat-header">
+          <img [src]="selectedConversation.partnerPhotoUrl || '/assets/default-avatar.png'" class="chat-avatar" />
+          <h2>{{ selectedConversation.partnerName }}</h2>
+        </div>
+
+        <!-- Messages -->
+        <div class="chat-box" *ngIf="messages.length > 0; else noMessages">
+          <div class="chat-message"
+               *ngFor="let msg of messages"
+               [class.sent]="msg.senderId === adminId"
+               [class.received]="msg.senderId !== adminId">
+            <div class="bubble">
+              <p>{{ msg.content }}</p>
+              <span class="timestamp">{{ msg.timestamp | date:'shortTime' }}</span>
+            </div>
+          </div>
+        </div>
+        <ng-template #noMessages>
+          <div class="empty-chat">No messages yet. Start the conversation!</div>
+        </ng-template>
+
+        <!-- Input -->
+        <div class="chat-input">
+          <input type="text"
+                 [(ngModel)]="newMessage"
+                 placeholder="Type a message..."
+                 (keyup.enter)="sendMessage()" />
+          <button class="btn primary" (click)="sendMessage()">Send</button>
+        </div>
+      </div>
+      <ng-template #emptyChat>
+        <div class="chat-placeholder">
+          <i class="fas fa-comments fa-3x text-muted"></i>
+          <p>Select an intern to start messaging</p>
+        </div>
+      </ng-template>
+    </div>
+  </div>
+</div>

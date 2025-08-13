@@ -1,0 +1,13 @@
+.admin-container {
+  min-height: 100vh;
+  background-color: #f4f6f8;
+}
+
+.admin-content {
+  width: 100%;
+  overflow: hidden;
+}
+
+.admin-main-content {
+  min-height: calc(100vh - 70px);
+}

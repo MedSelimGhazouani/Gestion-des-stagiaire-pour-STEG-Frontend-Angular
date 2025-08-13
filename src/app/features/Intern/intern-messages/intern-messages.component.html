@@ -1,0 +1,37 @@
+<div class="messaging-container">
+
+  <div class="chat-header">
+    <i class="fas fa-user-shield"></i>
+    <h2>{{ partnerName }}</h2>
+  </div>
+
+  <div class="chat-box">
+    <div *ngIf="errorMsg" class="chat-error">{{ errorMsg }}</div>
+    <div *ngIf="loading" class="chat-loading">Loading messages...</div>
+
+    <ng-container *ngIf="!loading && !errorMsg">
+      <div *ngIf="messages.length === 0" class="chat-empty">
+        No messages yet. Say hello to {{ partnerName }}!
+      </div>
+
+      <div class="chat-message"
+           *ngFor="let msg of messages"
+           [class.sent]="msg.senderId === currentUserId"
+           [class.received]="msg.senderId !== currentUserId">
+        <div class="bubble">
+          <p>{{ msg.content }}</p>
+          <span class="timestamp">{{ msg.timestamp | date:'short' }}</span>
+        </div>
+      </div>
+    </ng-container>
+  </div>
+
+  <div class="chat-input">
+    <input
+      type="text"
+      [(ngModel)]="newMessage"
+      placeholder="Type your message..."
+      (keyup.enter)="sendMessage()" />
+    <button class="btn primary" (click)="sendMessage()">Send</button>
+  </div>
+</div>

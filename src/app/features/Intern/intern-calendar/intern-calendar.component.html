@@ -1,0 +1,51 @@
+<div class="calendar-wrapper">
+  <div class="calendar-header">
+    <button class="nav-arrow" aria-label="Previous Month" (click)="prevMonth()">&#8249;</button>
+    <div class="month-year">{{ monthNames[currentMonth] }} {{ currentYear }}</div>
+    <button class="nav-arrow" aria-label="Next Month" (click)="nextMonth()">&#8250;</button>
+  </div>
+
+  <div class="weekdays">
+    <div *ngFor="let wd of weekDays" class="weekday">{{ wd }}</div>
+  </div>
+
+  <div class="calendar-grid">
+    <div
+      *ngFor="let day of calendarDays"
+      class="calendar-day"
+      [class.empty]="!day.date"
+[class.task-filled]="day.task && day.task.description && day.task.description.trim().length > 0"
+      (click)="day.date ? openTaskModal(day) : null"
+      tabindex="0"
+      role="button"
+      aria-pressed="false"
+    >
+      <div class="day-number">{{ day.date?.getDate() }}</div>
+      <div class="task-content" *ngIf="day.task?.description">
+        <!-- optional small preview or icon -->
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal-backdrop" *ngIf="showTaskModal" (click)="closeTaskModal()"></div>
+<div class="modal" *ngIf="showTaskModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+  <h2 id="modalTitle">Task for {{ selectedDay?.date | date:'fullDate' }}</h2>
+
+  <label for="taskDescription">Description</label>
+  <textarea id="taskDescription" [(ngModel)]="selectedDay!.task!.description" placeholder="Write your task..."></textarea>
+
+  <label for="taskStatus">Status</label>
+<select id="taskStatus" [(ngModel)]="selectedDay!.task!.status">
+  <option [ngValue]="'PENDING'">Pending</option>
+  <option [ngValue]="'IN_PROGRESS'">In Progress</option>
+  <option [ngValue]="'COMPLETED'">Completed</option>
+</select>
+
+
+  <div class="modal-buttons">
+    <button class="btn save-btn" (click)="saveTask()">Save</button>
+    <button class="btn cancel-btn" (click)="closeTaskModal()">Cancel</button>
+  </div>
+</div>
