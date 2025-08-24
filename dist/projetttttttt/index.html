@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en" data-critters-container>
+<head>
+  <meta charset="utf-8">
+  <title>Projetttttttt</title>
+  <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <!-- Ajouter les styles spécifiques à l'admin -->
+  <link href="/assets/admin-template/img/favicon.png" rel="shortcut icon" type="image/png">
+   <!-- Styles Include -->
+    <!-- Styles Include -->
+    <style>@charset "UTF-8";@import url("../font-icons/bootstrap-icons/font/bootstrap-icons.css");@import url("../../plugins/select2/css/select2.min.css");@import url("../../plugins/datatables/css/jquery.dataTables.min.css");@import url("../../plugins/fullcalendar/fullcalendar.css");@import url("../../plugins/flatpickr/flatpickr.css");@import url("../../plugins/dropzone/dropzone.min.css");@import url("../../plugins/dropzone/dropzone_custom.css");@import url("../../plugins/jquery_ui/style.css");@import url("../../plugins/jquery-jvectormap/jquery-jvectormap-2.0.5.css");@import url("../../plugins/kanban/jkanban.css");@import url("../../plugins/kanban/jkanban-custom.css");@import url("../../plugins/sweetalert/sweetalert2.css");@import url("../../plugins/toastr/toastr.css");@import url("../../plugins/prism/prism.css");@import url("https://fonts.googleapis.com/css2?family=Public%20Sans:wght@500;600;700&amp;family=Open+Sans:wght@400;600;700&amp;display=swap");:root{--kleon-primary:#924AEF;--kleon-secondary:#E328AF;--kleon-success:#38E25D;--kleon-info:#5ECFFF;--kleon-warning:#FF9325;--kleon-danger:#FF4A55;--kleon-blue:#1220a3;--kleon-green:#2DA04D;--kleon-red:#FF4A55;--kleon-yellow:#FFE161;--kleon-orange:#FFAB2D;--kleon-cyan:#5ECFFF;--kleon-accent-01:#DFEDF2;--kleon-accent-02:#2390BF;--kleon-accent-03:#C15BB7;--kleon-white:#ffffff;--kleon-light:#F9F9F9;--kleon-light-100:#F9F9F9;--kleon-light-200:#F5F5F5;--kleon-light-300:#FAFAFA;--kleon-light-400:#F0F0F0;--kleon-light-500:#FDFBFF;--kleon-muted:#F6EEFF;--kleon-gray:#A5A5A5;--kleon-gray-100:#A5A5A5;--kleon-gray-200:#C2C2C2;--kleon-gray-300:#C7C7C7;--kleon-gray-400:#8F8F8F;--kleon-dark:#202020;--kleon-black:#000000;--kleon-gray-100:#A5A5A5;--kleon-gray-200:#C2C2C2;--kleon-gray-300:#C7C7C7;--kleon-gray-400:#8F8F8F;--kleon-gray-500:#adb5bd;--kleon-gray-600:#6c757d;--kleon-gray-700:#495057;--kleon-gray-800:#343a40;--kleon-gray-900:#212529;--kleon-primary:#924AEF;--kleon-secondary:#E328AF;--kleon-success:#38E25D;--kleon-info:#5ECFFF;--kleon-warning:#FF9325;--kleon-danger:#FF4A55;--kleon-blue:#1220a3;--kleon-green:#2DA04D;--kleon-red:#FF4A55;--kleon-yellow:#FFE161;--kleon-orange:#FFAB2D;--kleon-cyan:#5ECFFF;--kleon-accent-01:#DFEDF2;--kleon-accent-02:#2390BF;--kleon-accent-03:#C15BB7;--kleon-white:#ffffff;--kleon-light:#F9F9F9;--kleon-light-100:#F9F9F9;--kleon-light-200:#F5F5F5;--kleon-light-300:#FAFAFA;--kleon-light-400:#F0F0F0;--kleon-light-500:#FDFBFF;--kleon-muted:#F6EEFF;--kleon-gray:#A5A5A5;--kleon-gray-100:#A5A5A5;--kleon-gray-200:#C2C2C2;--kleon-gray-300:#C7C7C7;--kleon-gray-400:#8F8F8F;--kleon-dark:#202020;--kleon-black:#000000;--kleon-primary-rgb:146, 74, 239;--kleon-secondary-rgb:227, 40, 175;--kleon-success-rgb:56, 226, 93;--kleon-info-rgb:94, 207, 255;--kleon-warning-rgb:255, 147, 37;--kleon-danger-rgb:255, 74, 85;--kleon-blue-rgb:18, 32, 163;--kleon-green-rgb:45, 160, 77;--kleon-red-rgb:255, 74, 85;--kleon-yellow-rgb:255, 225, 97;--kleon-orange-rgb:255, 171, 45;--kleon-cyan-rgb:94, 207, 255;--kleon-accent-01-rgb:223, 237, 242;--kleon-accent-02-rgb:35, 144, 191;--kleon-accent-03-rgb:193, 91, 183;--kleon-white-rgb:255, 255, 255;--kleon-light-rgb:249, 249, 249;--kleon-light-100-rgb:249, 249, 249;--kleon-light-200-rgb:245, 245, 245;--kleon-light-300-rgb:250, 250, 250;--kleon-light-400-rgb:240, 240, 240;--kleon-light-500-rgb:253, 251, 255;--kleon-muted-rgb:246, 238, 255;--kleon-gray-rgb:165, 165, 165;--kleon-gray-100-rgb:165, 165, 165;--kleon-gray-200-rgb:194, 194, 194;--kleon-gray-300-rgb:199, 199, 199;--kleon-gray-400-rgb:143, 143, 143;--kleon-dark-rgb:32, 32, 32;--kleon-black-rgb:0, 0, 0;--kleon-white-rgb:255, 255, 255;--kleon-black-rgb:0, 0, 0;--kleon-body-color-rgb:33, 37, 41;--kleon-body-bg-rgb:255, 255, 255;--kleon-font-sans-serif:"Open Sans", sans-serif;--kleon-font-monospace:SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;--kleon-gradient:linear-gradient(180deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0));--kleon-body-font-family:Open Sans, sans-serif;--kleon-body-font-size:1rem;--kleon-body-font-weight:400;--kleon-body-line-height:1.45;--kleon-body-color:#212529;--kleon-body-bg:#ffffff;--kleon-border-width:1px;--kleon-border-style:solid;--kleon-border-color:#8F8F8F;--kleon-border-color-translucent:rgba(0, 0, 0, 0.175);--kleon-border-radius:0.875rem;--kleon-border-radius-sm:0.5rem;--kleon-border-radius-lg:1.5625rem;--kleon-border-radius-xl:1rem;--kleon-border-radius-2xl:2rem;--kleon-border-radius-pill:50rem;--kleon-heading-color: ;--kleon-link-color:#924AEF;--kleon-link-hover-color:#753bbf;--kleon-code-color:#d63384;--kleon-highlight-bg:#fff9df}*,*::before,*::after{box-sizing:border-box}@media (prefers-reduced-motion: no-preference){:root{scroll-behavior:smooth}}body{margin:0;font-family:var(--kleon-body-font-family);font-size:var(--kleon-body-font-size);font-weight:var(--kleon-body-font-weight);line-height:var(--kleon-body-line-height);color:var(--kleon-body-color);text-align:var(--kleon-body-text-align);-webkit-text-size-adjust:100%;-webkit-tap-highlight-color:rgba(0, 0, 0, 0)}html{padding:0}body{position:relative;margin:0;font-family:"Open Sans", sans-serif;font-size:1rem;font-weight:400;line-height:1.45;color:#202020;background-color:#ffffff;-webkit-text-size-adjust:100%;-webkit-tap-highlight-color:rgba(0, 0, 0, 0);-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;overflow-x:hidden}@media screen and (max-width: 1399.98px){body{font-size:0.9375rem}}</style><link rel="stylesheet" href="/assets/admin-template/css/main.css" id="stylesheet" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="/assets/admin-template/css/main.css"></noscript>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+
+
+
+<link rel="stylesheet" href="styles.ef46db3751d8e999.css"></head>
+<body>
+   <!-- Ajouter les scripts spécifiques à l'admin -->
+
+
+ <!-- Core JS -->
+ <script src="/assets/admin-template/js/jquery-3.6.0.min.js"></script>
+ <script src="/assets/admin-template/js/bootstrap.bundle.min.js"></script>
+
+ <!-- jQuery UI Kit -->
+ <script src="/assets/plugins/jquery_ui/jquery-ui.1.12.1.min.js"></script>
+
+ <!-- ApexChart -->
+ <script src="/assets/plugins/apexchart/apexcharts.min.js"></script>
+ <script src="/assets/plugins/apexchartapexchart-inits/apexcharts-analytics-2.js"></script>
+ <script src="/assets/plugins/apexchart/apexchart-inits/apexcharts-analytics.js"></script>
+ <script src="/assets/plugins/apexchart/apexchart-inits/apexcharts-attendances.js"></script>
+ <script src="/assets/plugins/apexchart/apexchart-inits/apexcharts-cards.js"></script> 
+<script src="/assets/plugins/apexchart/apexchart-inits/apexcharts-hr.js"></script>
+<script src="/assets/plugins/apexchart/apexchart-inits/apexcharts-ecommerce-2.js"></script>
+
+ <!-- Peity  -->
+ <script src="/assets/plugins/peity/jquery.peity.min.js"></script>
+ <script src="/assets/plugins/peity/piety-init.js"></script>
+
+ <!-- Select 2 -->
+ <script src="/assets/plugins/select2/js/select2.min.js"></script>
+
+ <!-- Datatables -->
+ <script src="/assets/plugins/datatables/js/jquery.dataTables.min.js"></script>
+ <script src="/assets/plugins/datatables/js/datatables.init.js"></script>
+
+
+ 
+
+ <!-- Date Picker -->
+ <script src="/assets/plugins/flatpickr/flatpickr.min.js"></script>
+
+ <!-- Dropzone -->
+ <script src="/assets/plugins/dropzone/dropzone.min.js"></script>
+ <script src="/assets/plugins/dropzone/dropzone_custom.js"></script>
+
+ <!-- TinyMCE -->
+ <script src="/assets/plugins/tinymce/tinymce.min.js"></script>
+ <script src="/assets/plugins/prism/prism.js"></script>
+ <script src="/assets/plugins/jquery-repeater/jquery.repeater.js"></script>
+
+ 
+
+ 
+
+ <!-- Sweet Alert -->
+ <script src="/assets/plugins/sweetalert/sweetalert2.min.js"></script>
+ <script src="/assets/plugins/sweetalert/sweetalert2-init.js"></script>
+ <script src="/assets/plugins/nicescroll/jquery.nicescroll.min.js"></script>
+ <script src="/assets/plugins/nicescroll/jquery.nicescroll.min.js"></script>
+
+ <!-- Snippets JS -->
+ <script src="/assets/admin-template/js/snippets.js"></script>
+
+ <!-- Theme Custom JS -->
+ <script src="/assets/admin-template/js/theme.js"></script>
+
+
+
+
+
+
+
+
+
+  <app-root></app-root>
+<script src="runtime.dcd0b8c3b9d2b3a1.js" type="module"></script><script src="polyfills.1d19430f27410aba.js" type="module"></script><script src="main.5e5887766b441b83.js" type="module"></script></body>
+</html>
